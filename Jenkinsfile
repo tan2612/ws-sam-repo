@@ -17,8 +17,7 @@ pipeline {
         }
         stage('Deploy'){
             steps {
-                withVault(configuration: [timeout: 60, vaultCredentialId: 'vault-token', vaultUrl: 'http://localhost:8200'
-​], vaultSecrets: [[path: 'kv/muleSecret', secretValues: [[vaultKey: 'HArtifactId'], [vaultKey: 'HEnv'], [vaultKey: 'HPassword'], [vaultKey: 'HUsername'], [vaultKey: 'HVersion'], [vaultKey: 'HWorkerType']]]]) {
+                withVault(configuration: [timeout: 60, vaultCredentialId: 'vault-token', vaultUrl: 'http://localhost:8200'], vaultSecrets: [[path: 'kv/muleSecret', secretValues: [[vaultKey: 'HArtifactId'], [vaultKey: 'HEnv'], [vaultKey: 'HPassword'], [vaultKey: 'HUsername'], [vaultKey: 'HVersion'], [vaultKey: 'HWorkerType']]]]) {
             bat "mvn clean package deploy -DmuleDeploy -Dmule.version=HVersion -Danypoint.username=HUsername -Danypoint.password=HPassword -Dcloudhub.env=HEnv -Dproject.artifactId=HArtifactId -Dcloudhub.workerType=HWorkerType"
             //sh 'docker login -u $username -p $password'
         }
