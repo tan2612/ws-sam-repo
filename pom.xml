@@ -37,8 +37,11 @@
 						<username>${anypoint.username}</username>
 						<password>${anypoint.password}</password>
 						<environment>${cloudhub.env}</environment>
-						<applicationName>${artifactId}</applicationName>
+						<region>us-east-2</region>
+						<workers>1</workers>
+						<applicationName>${project.artifactId}</applicationName>
 						<workerType>${cloudhub.workerType}</workerType>
+						<objectStoreV2>false</objectStoreV2>
 					</cloudHubDeployment>
 				</configuration>
 			</plugin>
