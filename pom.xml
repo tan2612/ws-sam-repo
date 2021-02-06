@@ -41,7 +41,7 @@
 						<workers>1</workers>
 						<applicationName>${project.artifactId}</applicationName>
 						<workerType>${cloudhub.workerType}</workerType>
-						<objectStoreV2>false</objectStoreV2>
+						<objectStoreV2>true</objectStoreV2>
 					</cloudHubDeployment>
 				</configuration>
 			</plugin>
